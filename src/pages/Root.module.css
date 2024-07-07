@@ -1,0 +1,16 @@
+.main {
+	margin-top: 3.5rem;
+}
+
+@media (min-width: 768px) {
+	.main {
+		margin-top: 7.5rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.main {
+		margin-top: 2rem;
+		margin-left: 10.25rem;
+	}
+}
