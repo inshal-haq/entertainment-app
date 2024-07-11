@@ -32,32 +32,70 @@ ul {
 }
 
 /* Typography */
-.heading-large {
-	font-size: 32px;
+/* Heading - Large */
+h1 {
+	font-size: 20px;
 	font-weight: 300;
 }
 
-.heading-medium {
-	font-size: 24px;
+/* Heading - Medium */
+h2 {
+	font-size: 16px;
 	font-weight: 300;
 }
 
-.heading-small {
-	font-size: 24px;
-	font-weight: 500;
-}
-
-.heading-extra-small {
-	font-size: 18px;
-	font-weight: 500;
-}
-
-.body-medium {
+/* Heading - Small */
+h3 {
 	font-size: 15px;
+	font-weight: 500;
+}
+
+/* Heading - Extra Small */
+h4 {
+	font-size: 14px;
+	font-weight: 500;
+}
+
+/* Body - Medium */
+div {
+	font-size: 12px;
 	font-weight: 300;
 }
 
-.body-small {
-	font-size: 13px;
+/* Body - Small */
+p {
+	font-size: 11px;
 	font-weight: 300;
+}
+
+@media (min-width: 768px) {
+	h1 {
+		font-size: 32px;
+		font-weight: 300;
+	}
+
+	h2 {
+		font-size: 24px;
+		font-weight: 300;
+	}
+
+	h3 {
+		font-size: 24px;
+		font-weight: 500;
+	}
+
+	h4 {
+		font-size: 18px;
+		font-weight: 500;
+	}
+
+	div {
+		font-size: 15px;
+		font-weight: 300;
+	}
+
+	p {
+		font-size: 13px;
+		font-weight: 300;
+	}
 }
