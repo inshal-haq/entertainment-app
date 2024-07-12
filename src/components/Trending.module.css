@@ -21,53 +21,6 @@
 	display: none; /* Hide scrollbar in Chrome, Safari, and Opera */
 }
 
-.card {
-	flex: 0 0 auto;
-	background-color: var(--color-dark-blue);
-	width: 240px;
-	height: 140px;
-	border-radius: 8px;
-	position: relative;
-	margin-right: 1rem;
-}
-
-.iconContainer {
-	position: absolute;
-	top: 0.5rem;
-	right: 0.5rem;
-
-	height: 2rem;
-	width: 2rem;
-	border-radius: 20rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: rgba(16, 20, 30, 0.5);
-	cursor: pointer;
-}
-
-.iconContainer:hover {
-	background-color: var(--color-white);
-}
-
-.iconContainer:hover .icon {
-	color: var(--color-darker-blue);
-}
-
-.icon {
-	color: var(--color-white);
-	width: 1rem;
-}
-
-.detailsContainer {
-	position: absolute;
-	bottom: 1rem;
-	left: 1rem;
-
-	display: flex;
-	flex-direction: column;
-}
-
 @media (min-width: 768px) {
 	.trending {
 		padding-top: 1.5rem;
@@ -77,23 +30,6 @@
 	.title,
 	.cardContainer {
 		padding-left: 1.5rem;
-	}
-
-	.card {
-		width: 470px;
-		height: 230px;
-	}
-
-	.iconContainer {
-		top: 1rem;
-		right: 1.5rem;
-	}
-
-	.detailsContainer {
-		bottom: 1.5rem;
-		left: 1.5rem;
-
-		gap: 0.25rem;
 	}
 }
 
