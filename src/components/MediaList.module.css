@@ -1,13 +1,14 @@
 .container {
-	padding-top: 1rem;
-	padding-left: 1rem;
+	padding: 1.5rem 1rem 0rem 1rem;
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 }
 
 .cardContainer {
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
+	gap: 1rem;
 	overflow-y: auto;
 	-ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
 	scrollbar-width: none; /* Hide scrollbar in Firefox */
@@ -19,14 +20,25 @@
 
 @media (min-width: 768px) {
 	.container {
-		padding-top: 1.5rem;
-		padding-left: 1.5rem;
+		padding: 2.5rem 1.5rem 0rem 1.5rem;
 		gap: 1.5rem;
+	}
+
+	.cardContainer {
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 1.75rem;
 	}
 }
 
 @media (min-width: 1024px) {
 	.container {
+		gap: 2rem;
 		padding-left: 0rem;
+		padding-right: 2.25rem;
+	}
+
+	.cardContainer {
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		gap: 2.5rem;
 	}
 }

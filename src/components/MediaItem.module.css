@@ -1,0 +1,63 @@
+.card {
+	flex: 0 0 auto;
+	background-color: var(--color-dark-blue);
+	width: 100%;
+	aspect-ratio: 156 / 104;
+	border-radius: 8px;
+	position: relative;
+	margin-right: 1rem;
+}
+
+.iconContainer {
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+
+	height: 2rem;
+	width: 2rem;
+	border-radius: 20rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(16, 20, 30, 0.5);
+	cursor: pointer;
+}
+
+.iconContainer:hover {
+	background-color: var(--color-white);
+}
+
+.iconContainer:hover .icon {
+	color: var(--color-darker-blue);
+}
+
+.icon {
+	color: var(--color-white);
+	width: 1rem;
+}
+.detailsContainer {
+	display: flex;
+	flex-direction: column;
+	padding-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+	.card {
+		aspect-ratio: 220 / 140;
+	}
+
+	.iconContainer {
+		top: 1rem;
+		right: 1.5rem;
+	}
+
+	.detailsContainer {
+		gap: 0.25rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.card {
+		aspect-ratio: 280 / 174;
+	}
+}
