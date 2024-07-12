@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
-import classes from './TrendingCard.module.css'
+import classes from './TrendingItem.module.css'
 
 import { BookmarkIcon } from '@heroicons/react/24/outline'
 import { BookmarkIcon as BookmarkedIcon } from '@heroicons/react/24/solid'
 
-const TrendingCard = () => {
+const TrendingItem = () => {
 	const [isBookmarked, setIsBookmarked] = useState(false)
 
 	return (
@@ -28,4 +28,4 @@ const TrendingCard = () => {
 	)
 }
 
-export default TrendingCard
+export default TrendingItem
