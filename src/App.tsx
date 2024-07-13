@@ -1,3 +1,4 @@
+import { QueryClientProvider } from '@tanstack/react-query'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import RootLayout from './pages/Root'
@@ -5,6 +6,7 @@ import HomePage from './pages/Home'
 import MoviePage from './pages/Movie'
 import TvPage from './pages/Tv'
 import BookmarkPage from './pages/Bookmark'
+import { queryClient } from './util/http'
 
 const router = createBrowserRouter([
 	{
@@ -20,7 +22,11 @@ const router = createBrowserRouter([
 ])
 
 const App: React.FC = () => {
-	return <RouterProvider router={router} />
+	return (
+		<QueryClientProvider client={queryClient}>
+			<RouterProvider router={router} />
+		</QueryClientProvider>
+	)
 }
 
 export default App

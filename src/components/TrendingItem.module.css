@@ -4,6 +4,8 @@
 	width: 240px;
 	height: 140px;
 	border-radius: 8px;
+	background-size: cover;
+	background-position: center;
 	position: relative;
 	margin-right: 1rem;
 }

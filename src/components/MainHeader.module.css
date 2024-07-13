@@ -83,7 +83,7 @@
 
 @media (min-width: 1024px) {
 	.background {
-		z-index: -10;
+		background-color: transparent;
 	}
 	.hidden {
 		transform: none;

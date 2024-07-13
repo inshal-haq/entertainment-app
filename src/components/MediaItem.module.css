@@ -4,6 +4,8 @@
 	width: 100%;
 	aspect-ratio: 156 / 104;
 	border-radius: 8px;
+	background-size: cover;
+	background-position: center;
 	position: relative;
 	margin-right: 1rem;
 }

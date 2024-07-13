@@ -4,13 +4,27 @@ import classes from './MediaItem.module.css'
 
 import { BookmarkIcon } from '@heroicons/react/24/outline'
 import { BookmarkIcon as BookmarkedIcon } from '@heroicons/react/24/solid'
+import { Media } from '../types/media'
 
-const MediaItem = () => {
+interface Props {
+	media: Media
+}
+
+const MediaItem: React.FC<Props> = ({ media }) => {
 	const [isBookmarked, setIsBookmarked] = useState(false)
+
+	const { title, name, backdrop_path, media_type, release_date, first_air_date } = media
+	const type = media_type === 'movie' ? 'Movie' : 'TV Series'
+	const year = release_date?.slice(0, 4) || first_air_date?.slice(0, 4)
 
 	return (
 		<div>
-			<div className={classes.card}>
+			<div
+				className={classes.card}
+				style={{
+					backgroundImage: `url('https://image.tmdb.org/t/p/w500/${backdrop_path}')`,
+				}}
+			>
 				<div
 					className={classes.iconContainer}
 					onClick={() => setIsBookmarked((prevState) => !prevState)}
@@ -23,8 +37,10 @@ const MediaItem = () => {
 				</div>
 			</div>
 			<div className={classes.detailsContainer}>
-				<p>2019 . Movie . PG</p>
-				<h4>Beyond Earth</h4>
+				<p>
+					{year} &bull; {type}
+				</p>
+				<h4>{title || name}</h4>
 			</div>
 		</div>
 	)
