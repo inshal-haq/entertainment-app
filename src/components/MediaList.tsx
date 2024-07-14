@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useQuery } from '@tanstack/react-query'
 import MediaItem from './MediaItem'
 import classes from './MediaList.module.css'
@@ -5,18 +6,29 @@ import { Media } from '../types/media'
 
 interface Props {
 	title: string
-	fetchCategory: () => Promise<Media[]>
+	queryKey: any[]
+	queryFn: () => Promise<Media[]>
+	staleTime?: number
+	setNumOfSearchResults?: (total: number) => void
 }
 
-const MediaList: React.FC<Props> = ({ title, fetchCategory }) => {
-	const { data } = useQuery({
-		queryKey: ['media', 'trending', 'day'],
-		queryFn: fetchCategory,
-		staleTime: 43200000, // 12 hours in ms - daily trending list
-	})
+const MediaList: React.FC<Props> = ({
+	title,
+	queryKey,
+	queryFn,
+	staleTime,
+	setNumOfSearchResults,
+}) => {
+	const { data } = useQuery({ queryKey, queryFn, staleTime })
+
+	if (setNumOfSearchResults && data) {
+		setNumOfSearchResults(data.length)
+	}
+
+	const containerStyle = setNumOfSearchResults ? classes.searchContainer : classes.container
 
 	return (
-		<section className={classes.container}>
+		<section className={containerStyle}>
 			<h1>{title}</h1>
 			{data && (
 				<div className={classes.cardContainer}>

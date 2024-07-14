@@ -13,7 +13,9 @@ interface Props {
 const MediaItem: React.FC<Props> = ({ media }) => {
 	const [isBookmarked, setIsBookmarked] = useState(false)
 
-	const { title, name, backdrop_path, media_type, release_date, first_air_date } = media
+	const { title, name, backdrop_path, poster_path, media_type, release_date, first_air_date } =
+		media
+	const image = backdrop_path || poster_path
 	const type = media_type === 'movie' ? 'Movie' : 'TV Series'
 	const year = release_date?.slice(0, 4) || first_air_date?.slice(0, 4)
 
@@ -22,7 +24,7 @@ const MediaItem: React.FC<Props> = ({ media }) => {
 			<div
 				className={classes.card}
 				style={{
-					backgroundImage: `url('https://image.tmdb.org/t/p/w500/${backdrop_path}')`,
+					backgroundImage: `url('https://image.tmdb.org/t/p/w500/${image}')`,
 				}}
 			>
 				<div
