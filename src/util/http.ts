@@ -5,8 +5,18 @@ import { Media } from '../types/media'
 const baseUrl = 'https://api.themoviedb.org/3'
 const apiKey = import.meta.env.VITE_TMDB_API_KEY
 
-export async function fetchTrending() {
-	const response = await fetch(`${baseUrl}/trending/all/week?api_key=${apiKey}`)
+interface FetchTrendingParams {
+	category: string
+	time: string
+}
+
+interface FetchSearchResultsParams {
+	category: string
+	searchTerm: string
+}
+
+export async function fetchTrending({ category, time }: FetchTrendingParams) {
+	const response = await fetch(`${baseUrl}/trending/${category}/${time}?api_key=${apiKey}`)
 
 	if (!response.ok) {
 		throw new Error(`An error occurred while fetching trending section: ${response.status}`)
@@ -28,9 +38,9 @@ export async function fetchRecommended() {
 	return results
 }
 
-export async function fetchSearchResults(searchTerm: string) {
+export async function fetchSearchResults({ category, searchTerm }: FetchSearchResultsParams) {
 	const response = await fetch(
-		`${baseUrl}/search/multi?query=${searchTerm}&include_adult=false&language=en-US&page=1&api_key=${apiKey}&sort_by=popularity.desc`
+		`${baseUrl}/search/${category}?query=${searchTerm}&include_adult=false&language=en-US&page=1&api_key=${apiKey}`
 	)
 
 	if (!response.ok) {

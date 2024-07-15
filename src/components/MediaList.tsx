@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { Media } from '../types/media'
 import classes from './MediaList.module.css'
+import { Media } from '../types/media'
 
 import MediaItem from './MediaItem'
 
@@ -10,7 +11,10 @@ interface Props {
 	queryKey: any[]
 	queryFn: () => Promise<Media[]>
 	staleTime?: number
-	setNumOfSearchResults?: (total: number) => void
+	setTotalSearchResults?: (total: number) => void
+	isMovieList?: boolean
+	isShowList?: boolean
+	isTopContainer?: boolean
 }
 
 const MediaList: React.FC<Props> = ({
@@ -18,15 +22,20 @@ const MediaList: React.FC<Props> = ({
 	queryKey,
 	queryFn,
 	staleTime,
-	setNumOfSearchResults,
+	setTotalSearchResults,
+	isMovieList,
+	isShowList,
+	isTopContainer,
 }) => {
 	const { data } = useQuery({ queryKey, queryFn, staleTime })
 
-	if (setNumOfSearchResults && data) {
-		setNumOfSearchResults(data.length)
-	}
+	useEffect(() => {
+		if (setTotalSearchResults && data) {
+			setTotalSearchResults(data.length)
+		}
+	}, [setTotalSearchResults, data])
 
-	const containerStyle = setNumOfSearchResults ? classes.topContainer : classes.container
+	const containerStyle = isTopContainer ? classes.topContainer : classes.container
 
 	return (
 		<section className={containerStyle}>
@@ -34,7 +43,7 @@ const MediaList: React.FC<Props> = ({
 			{data && (
 				<div className={classes.cardContainer}>
 					{data.map((media: Media) => (
-						<MediaItem key={media.id} media={media} />
+						<MediaItem key={media.id} media={media} isMovie={isMovieList} isShow={isShowList} />
 					))}
 				</div>
 			)}

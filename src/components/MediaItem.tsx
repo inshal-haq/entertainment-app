@@ -9,18 +9,23 @@ import { bookmarksAtom } from '../util/atoms'
 
 interface Props {
 	media: Media
+	isMovie?: boolean
+	isShow?: boolean
 }
 
-const MediaItem: React.FC<Props> = ({ media }) => {
+const MediaItem: React.FC<Props> = ({ media, isMovie, isShow }) => {
 	const [bookmarks, setBookmarks] = useAtom(bookmarksAtom)
 	const [isBookmarked, setIsBookmarked] = useState(false)
 
 	const { id, title, name, backdrop_path, poster_path, media_type, release_date, first_air_date } =
 		media
 	const image = backdrop_path || poster_path
-	const type = media_type === 'movie' ? 'Movie' : 'TV Series'
 	const year = release_date?.slice(0, 4) || first_air_date?.slice(0, 4)
 	const found = bookmarks.find((bookmark) => bookmark.id === id)
+
+	let type = media_type === 'movie' ? 'Movie' : 'TV Series'
+	if (isMovie) type = 'Movie'
+	if (isShow) type = 'TV Series'
 
 	useEffect(() => {
 		if (found) {

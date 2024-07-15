@@ -7,8 +7,8 @@ import { fetchTrending } from '../util/http'
 
 const TrendingList = () => {
 	const { data } = useQuery({
-		queryKey: ['media', 'trending'],
-		queryFn: fetchTrending,
+		queryKey: ['media', 'all', 'week'],
+		queryFn: () => fetchTrending({ category: 'all', time: 'week' }),
 		staleTime: 691200000, // 8 days in ms, using 8 to pass 1 week mark since api data is a weekly trending list
 	})
 
