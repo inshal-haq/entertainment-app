@@ -19,7 +19,7 @@ const Home: React.FC = () => {
 						title='Recommended for you'
 						queryKey={['media', 'trending', 'day']}
 						queryFn={fetchRecommended}
-						staleTime={43200000}
+						staleTime={43200000} // 12 hours in ms since api data is a daily trending list
 					/>
 				</>
 			)}

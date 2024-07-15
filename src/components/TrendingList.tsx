@@ -9,7 +9,7 @@ const TrendingList = () => {
 	const { data } = useQuery({
 		queryKey: ['media', 'trending'],
 		queryFn: fetchTrending,
-		staleTime: 691200000, // 8 days in ms, using 8 to pass 1 week mark since this is weekly trending list
+		staleTime: 691200000, // 8 days in ms, using 8 to pass 1 week mark since api data is a weekly trending list
 	})
 
 	return (
