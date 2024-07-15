@@ -1,8 +1,8 @@
-import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
-
-import classes from './Search.module.css'
-import useScrollDirection from '../hooks/useScrollDirection'
 import { useEffect, useRef, useState } from 'react'
+import useScrollDirection from '../hooks/useScrollDirection'
+import classes from './Search.module.css'
+
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 
 interface Props {
 	placeholder: string

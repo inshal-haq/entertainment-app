@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useQuery } from '@tanstack/react-query'
-import MediaItem from './MediaItem'
-import classes from './MediaList.module.css'
 import { Media } from '../types/media'
+import classes from './MediaList.module.css'
+
+import MediaItem from './MediaItem'
 
 interface Props {
 	title: string
@@ -25,7 +26,7 @@ const MediaList: React.FC<Props> = ({
 		setNumOfSearchResults(data.length)
 	}
 
-	const containerStyle = setNumOfSearchResults ? classes.searchContainer : classes.container
+	const containerStyle = setNumOfSearchResults ? classes.topContainer : classes.container
 
 	return (
 		<section className={containerStyle}>

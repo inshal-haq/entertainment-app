@@ -1,9 +1,9 @@
 import { useState } from 'react'
+import { fetchRecommended, fetchSearchResults } from '../util/http'
 
 import Search from '../components/Search'
 import TrendingList from '../components/TrendingList'
 import MediaList from '../components/MediaList'
-import { fetchRecommended, fetchSearchResults } from '../util/http'
 
 const Home: React.FC = () => {
 	const [searchTerm, setSearchTerm] = useState('')
@@ -25,7 +25,9 @@ const Home: React.FC = () => {
 			)}
 			{searchTerm && (
 				<MediaList
-					title={`Found ${numOfSearchResults} results for '${searchTerm}'`}
+					title={`Found ${numOfSearchResults} result${
+						numOfSearchResults !== 1 ? 's' : ''
+					} for '${searchTerm}'`}
 					queryKey={['media', { search: searchTerm }]}
 					queryFn={() => fetchSearchResults(searchTerm)}
 					setNumOfSearchResults={setNumOfSearchResults}
