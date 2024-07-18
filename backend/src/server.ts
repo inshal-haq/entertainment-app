@@ -1,10 +1,7 @@
-import { Media } from '../../src/types/media'
-
 import express from 'express'
-const app = express()
+import media from './routes/media'
 
-const baseApiUrl = 'https://api.themoviedb.org/3'
-const TMDB_API_KEY = process.env.TMDB_API_KEY
+const app = express()
 
 // Body parser middleware
 app.use(express.json())
@@ -24,27 +21,7 @@ app.use((req, res, next) => {
 	next()
 })
 
-// Get trending medias
-app.get('/api/trending', async (req, res) => {
-	const { category, time } = req.query
-
-	const response = await fetch(`${baseApiUrl}/trending/${category}/${time}?api_key=${TMDB_API_KEY}`)
-	const data = await response.json()
-
-	const media: Media[] = data.results
-
-	res.json({
-		media: media.map((item) => ({
-			id: item.id,
-			title: item.title,
-			name: item.name,
-			backdrop_path: item.backdrop_path,
-			poster_path: item.poster_path,
-			media_type: item.media_type,
-			release_date: item.release_date,
-			first_air_date: item.first_air_date,
-		})),
-	})
-})
+// Routes
+app.use('/api/media', media)
 
 app.listen(8000, () => console.log('Server running on port 8000'))

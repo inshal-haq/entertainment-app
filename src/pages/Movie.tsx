@@ -31,6 +31,7 @@ const Movie: React.FC = () => {
 					} for '${searchTerm}'`}
 					queryKey={['media', 'movie', 'day', { search: searchTerm }]}
 					queryFn={() => fetchSearchResults({ category: 'movie', searchTerm })}
+					staleTime={43200000} // 12 hours in ms since api data is a daily list
 					setTotalSearchResults={setTotalSearchResults}
 					isMovieList
 					isTopContainer
