@@ -16,15 +16,17 @@ interface FetchSearchResultsParams {
 }
 
 export async function fetchTrending({ category, time }: FetchTrendingParams) {
-	const response = await fetch(`${baseUrl}/trending/${category}/${time}?api_key=${apiKey}`)
+	const url = `http://localhost:8000/api/trending?category=${category}&time=${time}`
+
+	const response = await fetch(url)
 
 	if (!response.ok) {
 		throw new Error(`An error occurred while fetching trending section: ${response.status}`)
 	}
 
-	const { results } = await response.json()
+	const { media } = await response.json()
 
-	return results
+	return media
 }
 
 export async function fetchRecommended() {
