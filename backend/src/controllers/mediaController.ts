@@ -1,4 +1,4 @@
-import { Media } from '../../../src/types/media'
+import { Media } from '../../../frontend/src/types/media'
 import { Request, Response } from 'express'
 
 const baseApiUrl = 'https://api.themoviedb.org/3'
