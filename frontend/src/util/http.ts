@@ -2,6 +2,8 @@ import { QueryClient } from '@tanstack/react-query'
 export const queryClient = new QueryClient()
 import { Media } from '../types/media'
 
+const backendUrl = 'https://entertainment-app-backend.vercel.app'
+
 interface FetchTrendingParams {
 	category: string
 	time: string
@@ -13,7 +15,7 @@ interface FetchSearchResultsParams {
 }
 
 export async function fetchTrending({ category, time }: FetchTrendingParams) {
-	const url = `http://localhost:8000/api/media/trending?category=${category}&time=${time}`
+	const url = `${backendUrl}/api/media/trending?category=${category}&time=${time}`
 
 	const response = await fetch(url)
 
@@ -27,7 +29,7 @@ export async function fetchTrending({ category, time }: FetchTrendingParams) {
 }
 
 export async function fetchRecommended() {
-	const url = `http://localhost:8000/api/media/recommended`
+	const url = `${backendUrl}/api/media/recommended`
 
 	const response = await fetch(url)
 
@@ -41,7 +43,7 @@ export async function fetchRecommended() {
 }
 
 export async function fetchSearchResults({ category, searchTerm }: FetchSearchResultsParams) {
-	const url = `http://localhost:8000/api/media/search?category=${category}&searchTerm=${searchTerm}`
+	const url = `${backendUrl}/api/media/search?category=${category}&searchTerm=${searchTerm}`
 
 	const response = await fetch(url)
 
