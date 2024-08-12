@@ -5,7 +5,7 @@ import { Media } from '../types/media'
 
 import { BookmarkIcon } from '@heroicons/react/24/outline'
 import { BookmarkIcon as BookmarkedIcon } from '@heroicons/react/24/solid'
-import { bookmarksAtom } from '../util/atoms'
+import { bookmarksAtom } from '../store/atoms'
 
 interface Props {
 	media: Media

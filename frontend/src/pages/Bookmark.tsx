@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useAtom } from 'jotai'
-import { bookmarksAtom } from '../util/atoms'
+import { bookmarksAtom } from '../store/atoms'
 
 import Search from '../components/Search'
 import BookmarkList from '../components/BookmarkList'

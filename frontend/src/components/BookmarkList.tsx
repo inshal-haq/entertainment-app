@@ -1,5 +1,5 @@
 import { useAtom } from 'jotai'
-import { bookmarksAtom } from '../util/atoms'
+import { bookmarksAtom } from '../store/atoms'
 import { Media } from '../types/media'
 import classes from './BookmarkList.module.css'
 

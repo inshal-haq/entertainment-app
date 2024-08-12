@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useAtom } from 'jotai'
-import { totalSearchResultsAtom } from '../util/atoms'
+import { totalSearchResultsAtom } from '../store/atoms'
 import { fetchRecommended, fetchSearchResults } from '../util/http'
 
 import Search from '../components/Search'
