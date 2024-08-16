@@ -27,7 +27,7 @@ live link - https://entertainment-app-frontend-lyart.vercel.app
 - React libraries used
 	- React Router - for routing
 	- React Query - for fetching api and caching data
-	- Jotai - for global state management
+	- Jotai - for global state management and persisting data
 - TypeScript
 - CSS Modules
 - Express and Node - for TMDB api routes
